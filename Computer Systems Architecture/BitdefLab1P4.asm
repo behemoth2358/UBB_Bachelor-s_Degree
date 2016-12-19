@@ -1,7 +1,6 @@
 section .data
 
 format db '%d',0
-temp dw 0
 seed dd 0
 rand dd 0
 const equ 257
