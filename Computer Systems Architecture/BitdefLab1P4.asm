@@ -1,12 +1,12 @@
-section .text
-
 section .data
 
-format: db '%d',0
-temp: dw 0
-seed: dd 0
-rand: dd 0
-const: dd 257
+format db '%d',0
+temp dw 0
+seed dd 0
+rand dd 0
+const equ 257
+
+section .text
 
 extern _printf
 extern _exit
@@ -42,8 +42,9 @@ mul AX; DX:AX=rand^2
 mov [seed],AX
 mov [seed+2],DX 
 ; seed = rand^2
-mov EAX,[const]
-add [seed],EAX ; seed = rand^2+const
+mov EAX,[seed]
+add EAX,const
+mov [seed],EAX; seed = rand^2+const
 
 jmp random
 
