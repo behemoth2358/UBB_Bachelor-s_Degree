@@ -8,6 +8,7 @@ class IterableDS:
     
     def __init__(self):
         self.__arr=[]
+        self.__current=0
     
     def append(self,value):
         self.__arr.append(value)
@@ -28,8 +29,15 @@ class IterableDS:
         del self.__arr[index]
         return
     
+    def __next__(self):
+        if( self.__current >= len(self.__arr) ):
+            raise StopIteration
+        self.__current+=1
+        return self.__arr[ self.__current - 1 ]
+    
     def __iter__(self):
-        return iter(self.__arr)
+        self.__current=0
+        return self
     
     def __len__(self):
         return len(self.__arr)
