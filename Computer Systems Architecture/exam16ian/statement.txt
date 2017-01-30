@@ -1,0 +1,2 @@
+A string of bytes which contains sequences of positive(unsigned) numbers is given(defined in the module a.asm). Each sequence of numbers is ended with 0(zero). Compute the longest sequence that ends with zero from the given string by calling a procedure written in the module b.asm, and then display this longest sequence of numbers (without ending zero) in base 10 ( in module a.asm). 
+
