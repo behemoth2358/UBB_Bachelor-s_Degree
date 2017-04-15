@@ -1,6 +1,6 @@
 Cost graph classes documentation.
 
-cost_directed_graph<Type>, cost_undirected_graph<Type>, cost_io_directed_graph<Type>
+cost_directed_graph<vertexType, costType>, cost_undirected_graph<vertexType, costType>, cost_io_directed_graph<vertexType, costType>
 
 Constructors can accept a std::vector with vertices or a std::set with vertices
 
