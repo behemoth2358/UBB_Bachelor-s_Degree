@@ -46,9 +46,9 @@ unsigned int inDegree(vertexType x)
 - works only on cost_io_directed_graph<Type>
 
 setCost(vertexType x, vertexType y, costType c)
-- sets cost for edge x-y to c
+- sets cost for edge x->y to c
 - throws an error is x and/or y is an invalid vertex
 
 getCost(vertexType x, vertexType y)
-- returns cost for edge x-y
+- returns cost for edge x->y
 - throws an error is x and/or y is an invalid vertex
