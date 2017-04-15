@@ -1,0 +1,54 @@
+Cost graph classes documentation.
+
+cost_directed_graph<Type>, cost_undirected_graph<Type>, cost_io_directed_graph<Type>
+
+Constructors can accept a std::vector with vertices or a std::set with vertices
+
+Functions:
+
+addEdge(vertexType x, vertexType y, costType c)
+- add an edge between vertices x and y with cost c
+- if one of x and y is an invalid vertex, then will throw an error
+- if there's already an edge between x and y, the function will do nothing
+
+removeEdge(vertexType x, vertexType y)
+- removes the edge between vertices x and y
+- if one of x and y is an invalid vertex, then will throw an error
+- if there's no edge between, the function will do nothing
+
+unsigned int size()
+- returns the number of vertices
+
+unsigned int degree(vertexType x)
+- returns the out degree of vertex x
+- throws an error is x is an invalid vertex
+
+std::set<Type> getNeighbours(vertexType x)
+- returns a std::set<Type> will all out neighbours of vertex x
+- throws an error if x is an invalid vertex
+
+std::set<Type> getOutNeighbours(vertexType x)
+- does the same thing as getNeighbours
+- works only on cost_io_directed_graph<Type>
+
+std::set<Type> getInNeighbours(vertexType x)
+- returns a std::set<Type> will all in neighbours of vertex x
+- throws an error if x is an invalid vertex
+- works only on cost_io_directed_graph<Type>
+
+unsigned int outDegree(vertexType x)
+- does the same thing as degree
+- works only on cost_io_directed_graph<Type>
+
+unsigned int inDegree(vertexType x)
+- returns the in degree of vertex x
+- throws an error is x is an invalid vertex
+- works only on cost_io_directed_graph<Type>
+
+setCost(vertexType x, vertexType y, costType c)
+- sets cost for edge x-y to c
+- throws an error is x and/or y is an invalid vertex
+
+getCost(vertexType x, vertexType y)
+- returns cost for edge x-y
+- throws an error is x and/or y is an invalid vertex
