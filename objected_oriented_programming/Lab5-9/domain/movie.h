@@ -12,7 +12,7 @@ private:
 public:
     
     Movie() {}
-    Movie(std::string, std::string, std::string, int, int, int);
+    Movie(std::string, std::string, std::string, int, int);
     bool operator==(const Movie& other) const;
     std::string get_title() const;
     std::string get_genre() const;

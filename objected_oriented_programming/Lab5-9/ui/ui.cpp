@@ -59,11 +59,9 @@ void UI::run_admin_mode()
             std::cin >> year;
             std::cout << "Likes: ";
             std::cin >> likes;
-            std::cout << "Duration: ";
-            std::cin >> duration;
 
             try{
-                controller.add_movie(title, genre, trailer, year, likes, duration);
+                controller.add_movie(title, genre, trailer, year, likes);
             }catch (const std::invalid_argument& err){
                 std::cout << err.what() << '\n';
                 continue;
@@ -86,7 +84,7 @@ void UI::run_admin_mode()
             std::cin >> year;
 
             try{
-                controller.erase_movie(title, genre, trailer, year, likes, 0);
+                controller.erase_movie(title, genre, trailer, year, likes);
             }catch (const std::invalid_argument& err){
                 std::cout << err.what() << '\n';
                 continue;
@@ -208,7 +206,7 @@ void UI::run_client_mode() {
             std::cin >> year;
 
             try{
-                controller.rate_movie( Movie( title, genre, std::string(""), year, 0, 0 ) );
+                controller.rate_movie( Movie( title, genre, std::string(""), year, 0 ) );
             }
             catch (const std::invalid_argument& err){
                 std::cout << err.what() << '\n';

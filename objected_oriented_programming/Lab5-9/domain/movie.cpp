@@ -1,6 +1,6 @@
 #include "movie.h"
 
-Movie::Movie(std::string title, std::string genre, std::string trailer, int year, int likes, int duration = 0) {
+Movie::Movie(std::string title, std::string genre, std::string trailer, int year, int likes) {
     this->title = title;
     this->genre = genre;
     this->trailer = trailer;

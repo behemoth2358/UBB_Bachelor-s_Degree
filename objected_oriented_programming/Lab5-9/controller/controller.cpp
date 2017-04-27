@@ -6,12 +6,11 @@ Controller::Controller(const Repository& repository) {
     this->repository = repository;
 }
 
-void Controller::add_movie(std::string title, std::string genre, std::string trailer, int year, int likes, int duration)
-{
-    if(repository._find_movie( Movie( title, genre, trailer, year, likes, duration )) != -1) {
+void Controller::add_movie(std::string title, std::string genre, std::string trailer, int year, int likes) {
+    if(repository._find_movie( Movie( title, genre, trailer, year, likes )) != -1) {
         throw std::invalid_argument("Movie already in the list!");
     }
-    repository._add_movie( Movie( title, genre, trailer, year, likes, duration ) );
+    repository._add_movie( Movie( title, genre, trailer, year, likes ) );
 }
 
 std::vector< Movie > Controller::get_movies() {
@@ -22,9 +21,8 @@ size_t Controller::size() {
     return repository.size();
 }
 
-void Controller::erase_movie(std::string title, std::string genre, std::string trailer, int year, int likes=0, int duration=0)
-{
-    size_t pos = repository._find_movie( Movie( title, genre, trailer, year, likes, duration ) );
+void Controller::erase_movie(std::string title, std::string genre, std::string trailer, int year, int likes = 0){
+    size_t pos = repository._find_movie( Movie( title, genre, trailer, year, likes ) );
     if(pos == -1){
         throw std::invalid_argument("Can't find movie!");
     }
@@ -32,16 +30,15 @@ void Controller::erase_movie(std::string title, std::string genre, std::string t
 
 }
 
-std::vector< Movie > Controller::get_movies_by_genre( std::string genre )
-{
+std::vector< Movie > Controller::get_movies_by_genre( std::string genre ) {
     if( genre.size() == 0 ) {
         return repository._get_movies();
     }
-    std::vector< Movie > v = repository._get_movies(), aux;
+    std::vector< Movie > aux;
 
-    for(size_t i = 0; i < v.size(); i++) {
-        if(v[ i ].get_genre() == genre) {
-            aux.push_back( v[ i ] );
+    for(auto it: repository._get_movies()) {
+        if(it.get_genre() == genre) {
+            aux.push_back( it );
         }
     }
     return aux;
@@ -106,9 +103,9 @@ void Controller::update_movie(std::string title1, std::string genre1, std::strin
         likes = likes1;
     }
 
-    int pos = repository._find_movie( Movie(title1,genre1,trailer1,year1,likes1,0) );
+    int pos = repository._find_movie( Movie(title1,genre1,trailer1,year1,likes1) );
     if(pos == -1) {
         throw std::invalid_argument("Can't find movie!");
     }
-    repository._set_movie( pos, Movie( title, genre, trailer, year, likes, 0 ) );
+    repository._set_movie( pos, Movie( title, genre, trailer, year, likes) );
 }
