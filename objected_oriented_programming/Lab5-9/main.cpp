@@ -5,8 +5,7 @@
 #include "controller/controller.h"
 #include "repository/repository.h"
 
-int main()
-{
+int main() {
     Repository repo;
     Controller cont(repo);
     UI ui(cont);
