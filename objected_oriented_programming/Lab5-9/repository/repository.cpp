@@ -1,30 +1,26 @@
 #include "repository.h"
 
-void Repository::_add_movie(const Movie& movie) {
+void Repository::add(const Movie& movie) {
     this->movies.push_back( movie );
 }
 
-void Repository::_erase_movie(size_t index) {
-    if( _find_in_watchlist( movies[ index ] ) != -1) {
-        _erase_movie_from_watchlist( _find_in_watchlist( movies[ index ] ) );
+void Repository::erase(const Movie& movie) {
+    if( find_in_watchlist( movie ) != NOT_FOUND ) {
+        erase_movie_from_watchlist( find_in_watchlist( movie ) );
     }
-    this->movies.erase( this->movies.begin()+index );
+    this->movies.erase( std::find( this->movies.begin(), this->movies.end(), movie) );
 }
 
-int Repository::_find_movie(const Movie& movie) {
+int Repository::find(const Movie& movie) {
     for(size_t i = 0; i < this->movies.size(); i++) {
         if(this->movies[ i ] == movie) {
             return i;
         }
     }
-    return -1;
+    return NOT_FOUND;
 }
 
-Movie Repository::_get_movie(size_t pos) {
-    return this->movies[ pos ];
-}
-
-void Repository::_set_movie(size_t pos, const Movie& new_movie) {
+void Repository::set_movie(size_t pos, const Movie& new_movie) {
     this->movies[ pos ] = new_movie;
 }
 
@@ -32,31 +28,31 @@ size_t Repository::size() {
     return this->movies.size();
 }
 
-std::vector< Movie > Repository::_get_movies() {
+const std::vector<Movie>& Repository::get_data() const {
     return this->movies;
 }
 
-int Repository::_find_in_watchlist(const Movie& movie) {
+int Repository::find_in_watchlist(const Movie& movie) {
     for(size_t i = 0; i < this->watchlist.size(); i++) {
         if(this->movies[ this->watchlist[ i ] ] == movie) {
             return i;
         }
     }
-    return -1;
+    return NOT_FOUND;
 }
 
-void Repository::_add_movie_to_watchlist(int x) {
-    this->watchlist.push_back( x );
+void Repository::add_movie_to_watchlist(size_t pos) {
+    this->watchlist.push_back( pos );
 }
 
-void Repository::_increment_likes(int x) {
-    this->movies[x].set_likes( this->movies[x].get_likes() + 1 );
+void Repository::increment_likes(size_t pos) {
+    this->movies[ pos ].set_likes( this->movies[ pos ].get_likes() + 1 );
 }
 
-void Repository::_erase_movie_from_watchlist(int x) {
-    watchlist.erase( watchlist.begin()+x );
+void Repository::erase_movie_from_watchlist(size_t pos) {
+    watchlist.erase( watchlist.begin() + pos );
 }
 
-std::vector<int> Repository::_get_watchlist() {
+const std::vector<size_t>& Repository::get_watchlist() const {
     return this->watchlist;
 }

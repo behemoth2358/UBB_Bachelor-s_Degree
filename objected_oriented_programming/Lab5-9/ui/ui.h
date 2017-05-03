@@ -2,6 +2,10 @@
 #define UI_H
 
 #include "../controller/controller.h"
+#include "../domain/movie.h"
+#include "../utilities/config.h"
+#include <exception>
+
 
 #include <iostream>
 

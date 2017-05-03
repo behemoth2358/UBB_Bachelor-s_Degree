@@ -1,6 +1,6 @@
 #include "movie.h"
 
-Movie::Movie(std::string title, std::string genre, std::string trailer, int year, int likes) {
+Movie::Movie(const std::string& title, const std::string& genre, const std::string& trailer, int year, int likes) {
     this->title = title;
     this->genre = genre;
     this->trailer = trailer;
@@ -65,5 +65,19 @@ std::string Movie::toString() const {
     out += "\nNumber of likes: ";
     out += std::to_string( this->likes );
     out += "\n";
+    return out;
+}
+
+std::string Movie::toCSV() const {
+    std::string out("");
+    out += this->title;
+    out += ";";
+    out += this->genre;
+    out += ";";
+    out += this->trailer;
+    out += ";";
+    out += std::to_string( this->year );
+    out += ";";
+    out += std::to_string( this->likes );
     return out;
 }

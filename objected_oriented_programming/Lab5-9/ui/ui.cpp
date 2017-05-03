@@ -46,7 +46,7 @@ void UI::run_admin_mode()
         }
         if(op == 1) {
             std::string title, genre, trailer;
-            int year, likes, duration;
+            int year, likes;
 
             std::cin.get();
             std::cout << "\nTitle: ";
@@ -62,7 +62,7 @@ void UI::run_admin_mode()
 
             try{
                 controller.add_movie(title, genre, trailer, year, likes);
-            }catch (const std::invalid_argument& err){
+            }catch (const std::exception& err){
                 std::cout << err.what() << '\n';
                 continue;
             }
@@ -71,7 +71,7 @@ void UI::run_admin_mode()
         }
         if(op == 2) {
             std::string title, genre, trailer;
-            int year, likes;
+            int year;
 
             std::cin.get();
             std::cout << "\nTitle: ";
@@ -84,8 +84,8 @@ void UI::run_admin_mode()
             std::cin >> year;
 
             try{
-                controller.erase_movie(title, genre, trailer, year, likes);
-            }catch (const std::invalid_argument& err){
+                controller.erase_movie(title, genre, trailer, year, 0);
+            }catch (const std::exception& err){
                 std::cout << err.what() << '\n';
                 continue;
             }
@@ -112,7 +112,6 @@ void UI::run_admin_mode()
             std::string title1, genre1, trailer1;
             std::string year1, likes1; 
 
-            std::cin.get();
             std::cout << "Leave the fields you don't want to modify empty!\nTitle: ";
             getline(std::cin, title1);
             std::cout << "Genre: ";
@@ -126,7 +125,7 @@ void UI::run_admin_mode()
 
             try{
                 controller.update_movie(title, genre, trailer, std::stoi(year), std::stoi(likes), title1, genre1, trailer1, year1, likes1);
-            }catch (const std::invalid_argument& err) {
+            }catch (const std::exception& err) {
                 std::cout << err.what() << '\n';
                 continue;
             }
@@ -137,7 +136,7 @@ void UI::run_admin_mode()
 void UI::run_client_mode() {
     while(true) {
         int op;
-        std::cout << "\nPress 0 to exit\nPress 1 to see all the movies by genre.\nPress 2 to see the watchlist\nPress 3 to rate a movie\nInsert your command:";
+        std::cout << "\nPress 0 to exit\nPress 1 to see all the movies by genre.\nPress 2 to see the watchlist\nPress 3 to rate a movie\nPress 4 to see watchlist in browser\nInsert your command:";
         std::cin >> op;
         if(op==0) {
             break;
@@ -172,7 +171,7 @@ void UI::run_client_mode() {
                         try{
                             controller.add_movie_to_watchlist( movies[ i ] );
                         }
-                        catch (const std::invalid_argument& err) {
+                        catch (const std::exception& err) {
                             std::cout << err.what() << '\n';
                             continue;
                         }
@@ -208,10 +207,18 @@ void UI::run_client_mode() {
             try{
                 controller.rate_movie( Movie( title, genre, std::string(""), year, 0 ) );
             }
-            catch (const std::invalid_argument& err){
+            catch (const std::exception& err){
                 std::cout << err.what() << '\n';
                 continue;
             }
+        }
+        if(op == 4) {
+            std::string command = "opera ";
+            command += HTML_FILE;
+            
+            system( command.data() );
+
+            continue;
         }
     }
 }

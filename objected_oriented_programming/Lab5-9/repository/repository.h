@@ -1,34 +1,54 @@
 #ifndef REPOSITORY_H
 #define REPOSITORY_H
 
+#include "virtual_repository.h"
+
 #include "../domain/movie.h"
+#include "../utilities/constants.h"
+#include "../exceptions/controller_exception.h"
+
 
 #include <vector>
-#include <fstream>
+#include <algorithm>
 #include <string>
 
-class Repository{
-
-private:
-
-    std::vector< Movie > movies;
-    std::vector<int> watchlist;
+class Repository : public VirtualRepository<Movie> { 
 
 public:
 
+    std::vector<Movie> movies;
+    
+    std::vector<size_t> watchlist;
+
+    void load_data(){}
+
+    void save_data(){}
+
     Repository(){}
-    void _add_movie(const Movie&);
-    std::vector< Movie > _get_movies();
+
+    ~Repository(){}
+
+    void add(const Movie&);
+
+    void erase(const Movie& obj);
+
+    int find(const Movie& obj);
+
+    const std::vector<Movie>& get_data() const;
+
     size_t size();
-    Movie _get_movie(size_t);
-    void _set_movie(size_t, const Movie&);
-    int _find_movie(const Movie&);
-    void _erase_movie(size_t);
-    std::vector<int> _get_watchlist();
-    void _add_movie_to_watchlist(int);
-    int _find_in_watchlist(const Movie&);
-    void _increment_likes(int);
-    void _erase_movie_from_watchlist(int);
+
+    void set_movie(size_t, const Movie&);
+
+    const std::vector<size_t>& get_watchlist() const;
+
+    void add_movie_to_watchlist(size_t);
+
+    int find_in_watchlist(const Movie&);
+
+    void increment_likes(size_t);
+
+    void erase_movie_from_watchlist(size_t);
 };
 
 #endif
