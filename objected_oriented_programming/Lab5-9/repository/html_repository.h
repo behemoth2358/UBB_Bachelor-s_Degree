@@ -7,11 +7,7 @@
 #include "file_repository.h"
 #include "../domain/movie.h"
 #include <fstream>
-//#include "../utilities/functions.h"
-#include <vector>//TO_BE_DELETED
-#include <string>//TO_BE_DELETED
-#include <sstream>//TO_BE_DELETED
-#include <algorithm>//TO_BE_DELETED
+#include "../utilities/functions.h"
 
 #include <fstream>
 
