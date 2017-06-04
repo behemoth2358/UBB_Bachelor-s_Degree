@@ -122,7 +122,7 @@ int main(int argc, char** args) {
 	std::vector<int> latest_time_starts = res.second.first;
 	std::vector<int> latest_time_ends = res.second.second;
 
-	std::cout<<"Topo. sort is ";
+	std::cout << "Topo. sort is ";
 	for(auto it: topSort) {
 		std::cout << it.index << ' ';
 	}
@@ -132,6 +132,16 @@ int main(int argc, char** args) {
 
 		std::cout << "Activity #" << it.index << " : Earliest time starts = " << earliest_time_starts[ it.index ] << " , Earliest time ends = " << earliest_time_ends[ it.index ] << " , Latest time starts = " << latest_time_starts[ it.index ] << " , Latest time ends = " << latest_time_ends[ it.index ] << '\n';
 	}
+
+	std::cout << "Critical activities: ";
+
+	for(auto it: activities) {
+		if(earliest_time_starts[ it.index ] == latest_time_starts[ it.index ]) {
+			std::cout << it.index << ' ';
+		}
+ 	}
+
+ 	std::cout << '\n';
 
 	return 0;
 }
