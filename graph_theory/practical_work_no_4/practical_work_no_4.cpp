@@ -1,3 +1,12 @@
+/*
+Write a program that, given a list of activities with duration and list of prerequisites for each activity, does the following:
+
+-verify if the corresponding graph is a DAG and performs a topological sorting of the activities using the algorithm based on predecessor counters;
+-prints the earliest and the latest starting time for each activity and the total time of the project.
+-prints the critical activities.
+
+*/
+
 #include <fstream>
 #include <iostream>
 #include <vector>
@@ -101,6 +110,11 @@ int main(int argc, char** args) {
 	}
 
 	std::vector<Activity> topSort = TopoSort<Activity>(G);
+
+	if(topSort.size() != G.size()) {
+		std::cout << "Not a DAG!\n";
+		return 0;
+	}
 
 	std::pair< std::pair< std::vector<int>, std::vector<int> >, std::pair< std::vector<int>, std::vector<int> > > res = compute_times(G, topSort);
 	std::vector<int> earliest_time_starts = res.first.first;
