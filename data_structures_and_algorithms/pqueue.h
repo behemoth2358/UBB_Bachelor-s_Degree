@@ -1,12 +1,12 @@
 #ifndef PQUEUE_H
 #define PQUEUE_H
 
-#include "vector.h"
+#include <vector>
 
 template<typename DataType>
 class PQueue{
 private:
-    vector< DataType > heap;
+    std::vector< DataType > heap;
 
     void swap(DataType& x, DataType& y) {
         DataType z = y;
@@ -32,7 +32,7 @@ public:
         }
     }
 
-    size_t size() {//number of elements in heap
+    unsigned int size() {//number of elements in heap
         return heap.size();
     }
 
