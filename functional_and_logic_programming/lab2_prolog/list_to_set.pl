@@ -13,8 +13,7 @@ count_occurences([H|T], X, Result) :-
 
 count_occurences([H|T], X, Result) :-
 	H =\= X,
-	count_occurences(T, X, AuxResult),
-	Result is AuxResult.
+	count_occurences(T, X, Result).
 
 list_to_set([], Result) :-
 	Result = [].
