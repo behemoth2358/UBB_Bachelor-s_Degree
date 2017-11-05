@@ -1,0 +1,480 @@
+
+-----------------------------------------------
+Date: 14:49:30.562
+
+Symbol table: 
+file1 = 445051633
+
+
+Stack: 
+OpenFile(file2, /home/bogdanboboc97/IdeaProjects/toylanguage/src/main/java/com/company/file2.txt)
+ReadFile(file1)
+ReadFile(file2)
+z = x + y
+print (z)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+Date: 14:49:30.575
+
+Symbol table: 
+file2 = 476402209
+file1 = 445051633
+
+
+Stack: 
+ReadFile(file1)
+ReadFile(file2)
+z = x + y
+print (z)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+Date: 14:49:30.575
+
+Symbol table: 
+file2 = 476402209
+x = 6
+file1 = 445051633
+
+
+Stack: 
+ReadFile(file2)
+z = x + y
+print (z)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+Date: 14:49:30.576
+
+Symbol table: 
+file2 = 476402209
+x = 6
+y = 1
+file1 = 445051633
+
+
+Stack: 
+z = x + y
+print (z)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+Date: 14:49:30.577
+
+Symbol table: 
+file2 = 476402209
+x = 6
+y = 1
+z = 7
+file1 = 445051633
+
+
+Stack: 
+print (z)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+Date: 14:49:30.577
+
+Symbol table: 
+file2 = 476402209
+x = 6
+y = 1
+z = 7
+file1 = 445051633
+
+
+Stack: 
+list is empty
+
+List: 
+7
+
+
+
+
+-----------------------------------------------
+Date: 14:50:04.124
+
+Symbol table: 
+file1 = 445051633
+
+
+Stack: 
+OpenFile(file2, /home/bogdanboboc97/IdeaProjects/toylanguage/src/main/java/com/company/file2.txt)
+ReadFile(file1)
+ReadFile(file2)
+z = x + y
+print (z)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+Date: 14:50:04.134
+
+Symbol table: 
+file2 = 476402209
+file1 = 445051633
+
+
+Stack: 
+ReadFile(file1)
+ReadFile(file2)
+z = x + y
+print (z)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+Date: 14:50:04.134
+
+Symbol table: 
+file2 = 476402209
+x = 6
+file1 = 445051633
+
+
+Stack: 
+ReadFile(file2)
+z = x + y
+print (z)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+Date: 14:50:04.134
+
+Symbol table: 
+file2 = 476402209
+x = 6
+y = 1
+file1 = 445051633
+
+
+Stack: 
+z = x + y
+print (z)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+Date: 14:50:04.134
+
+Symbol table: 
+file2 = 476402209
+x = 6
+y = 1
+z = 7
+file1 = 445051633
+
+
+Stack: 
+print (z)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+Date: 14:50:04.134
+
+Symbol table: 
+file2 = 476402209
+x = 6
+y = 1
+z = 7
+file1 = 445051633
+
+
+Stack: 
+list is empty
+
+List: 
+7
+
+
+
+
+-----------------------------------------------
+Date: 14:52:28.553
+
+Symbol table: 
+file1 = 445051633
+
+
+Stack: 
+OpenFile(file2, /home/bogdanboboc97/IdeaProjects/toylanguage/src/main/java/com/company/file2.txt)
+ReadFile(file1)
+ReadFile(file2)
+z = x + y
+print (z)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+Date: 14:52:28.564
+
+Symbol table: 
+file2 = 476402209
+file1 = 445051633
+
+
+Stack: 
+ReadFile(file1)
+ReadFile(file2)
+z = x + y
+print (z)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+Date: 14:52:28.565
+
+Symbol table: 
+file2 = 476402209
+x = 6
+file1 = 445051633
+
+
+Stack: 
+ReadFile(file2)
+z = x + y
+print (z)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+Date: 14:52:28.565
+
+Symbol table: 
+file2 = 476402209
+x = 6
+y = 1
+file1 = 445051633
+
+
+Stack: 
+z = x + y
+print (z)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+Date: 14:52:28.565
+
+Symbol table: 
+file2 = 476402209
+x = 6
+y = 1
+z = 7
+file1 = 445051633
+
+
+Stack: 
+print (z)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+Date: 14:52:28.565
+
+Symbol table: 
+file2 = 476402209
+x = 6
+y = 1
+z = 7
+file1 = 445051633
+
+
+Stack: 
+list is empty
+
+List: 
+7
+
+
+
+
+-----------------------------------------------
+Date: 14:54:26.522
+
+Symbol table: 
+file1 = 445051633
+
+
+Stack: 
+OpenFile(file2, /home/bogdanboboc97/IdeaProjects/toylanguage/src/main/java/com/company/file2.txt)
+ReadFile(file1)
+ReadFile(file2)
+z = x + y
+print (z)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+Date: 14:54:26.537
+
+Symbol table: 
+file2 = 476402209
+file1 = 445051633
+
+
+Stack: 
+ReadFile(file1)
+ReadFile(file2)
+z = x + y
+print (z)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+Date: 14:54:26.537
+
+Symbol table: 
+file2 = 476402209
+x = 6
+file1 = 445051633
+
+
+Stack: 
+ReadFile(file2)
+z = x + y
+print (z)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+Date: 14:54:26.537
+
+Symbol table: 
+file2 = 476402209
+x = 6
+y = 1
+file1 = 445051633
+
+
+Stack: 
+z = x + y
+print (z)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+Date: 14:54:26.538
+
+Symbol table: 
+file2 = 476402209
+x = 6
+y = 1
+z = 7
+file1 = 445051633
+
+
+Stack: 
+print (z)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+Date: 14:54:26.538
+
+Symbol table: 
+file2 = 476402209
+x = 6
+y = 1
+z = 7
+file1 = 445051633
+
+
+Stack: 
+list is empty
+
+List: 
+7
+
+
+
