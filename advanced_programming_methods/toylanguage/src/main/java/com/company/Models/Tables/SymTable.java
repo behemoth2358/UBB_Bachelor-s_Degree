@@ -1,4 +1,4 @@
-package com.company.Models;
+package com.company.Models.Tables;
 
 import com.company.Utils.MyDictionary;
 

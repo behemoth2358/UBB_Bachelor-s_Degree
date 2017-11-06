@@ -1,7 +1,7 @@
 package com.company.Repository;
 
 import com.company.Utils.MyIList;
-import com.company.Models.ProgramState;
+import com.company.Models.ProgramState.ProgramState;
 
 public interface IRepository {
     MyIList<ProgramState> getData();
