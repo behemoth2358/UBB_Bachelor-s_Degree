@@ -1,4 +1,4 @@
-package com.company.Models.Utils;
+package com.company.Utils;
 
 import java.util.ArrayList;
 import java.util.List;

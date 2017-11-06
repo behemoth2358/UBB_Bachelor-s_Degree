@@ -1,7 +1,7 @@
 package com.company.Models;
 
-import com.company.Models.Utils.MyDictionary;
-import com.company.Models.Utils.Pair;
+import com.company.Utils.MyDictionary;
+import com.company.Utils.Pair;
 
 import java.io.BufferedReader;
 import java.util.HashMap;

@@ -1,8 +1,8 @@
 package com.company.Repository;
 
 import com.company.Models.ExceptionFactory;
-import com.company.Models.Utils.MyIList;
-import com.company.Models.Utils.MyList;
+import com.company.Utils.MyIList;
+import com.company.Utils.MyList;
 import com.company.Models.ProgramState;
 
 import java.io.BufferedWriter;

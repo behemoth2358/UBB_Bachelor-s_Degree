@@ -1,8 +1,8 @@
 package com.company.Models.Statements;
 
 import com.company.Models.*;
-import com.company.Models.Utils.MyIDictionary;
-import com.company.Models.Utils.Pair;
+import com.company.Utils.MyIDictionary;
+import com.company.Utils.Pair;
 
 import java.io.BufferedReader;
 import java.io.IOException;

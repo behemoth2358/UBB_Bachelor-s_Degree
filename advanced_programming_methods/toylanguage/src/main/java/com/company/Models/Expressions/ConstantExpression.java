@@ -1,7 +1,7 @@
 package com.company.Models.Expressions;
 
 import com.company.Models.Expression;
-import com.company.Models.Utils.MyIDictionary;
+import com.company.Utils.MyIDictionary;
 
 public class ConstantExpression extends Expression {
     private int value;

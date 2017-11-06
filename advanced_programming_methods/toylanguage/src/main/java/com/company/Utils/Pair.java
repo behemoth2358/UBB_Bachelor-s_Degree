@@ -1,4 +1,4 @@
-package com.company.Models.Utils;
+package com.company.Utils;
 
 public class Pair<X, Y> implements IPair<X, Y> {
 

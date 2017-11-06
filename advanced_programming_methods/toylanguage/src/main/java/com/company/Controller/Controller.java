@@ -2,39 +2,17 @@ package com.company.Controller;
 
 import com.company.Models.ExceptionFactory;
 import com.company.Models.IStatement;
-import com.company.Models.Utils.MyIStack;
+import com.company.Utils.MyIStack;
 import com.company.Models.ProgramState;
 import com.company.Repository.Repository;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.Reader;
-import java.util.HashMap;
 
 public class Controller {
     private Repository repository;
-    private String configFilePath;
-    private HashMap<String, Object> config;
 
-    public Controller(Repository repository, String configFilePath) {
+    public Controller(Repository repository) {
         this.repository = repository;
-        this.configFilePath = configFilePath;
-        loadConfig();
     }
 
-    private void loadConfig() {
-        Gson gson = new Gson();
-
-        try (Reader reader = new FileReader(this.configFilePath)) {
-
-            this.config = gson.fromJson(reader, new TypeToken<HashMap<String, Object>>(){}.getType());
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     public ProgramState executeOneInstruction(ProgramState program) throws Exception {
         MyIStack<IStatement> stack = program.getExeStack();
@@ -66,10 +44,7 @@ public class Controller {
 
             try {
                 executeOneInstruction(program);
-
-                if ((boolean)this.config.get("DEBUG")) {
-                    this.repository.logProgramState();
-                }
+                this.repository.logProgramState();
 
             } catch (Exception e) {
                 e.printStackTrace();

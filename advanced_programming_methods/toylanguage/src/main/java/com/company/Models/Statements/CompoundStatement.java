@@ -1,7 +1,7 @@
 package com.company.Models.Statements;
 
 import com.company.Models.IStatement;
-import com.company.Models.Utils.MyIStack;
+import com.company.Utils.MyIStack;
 import com.company.Models.ProgramState;
 
 public class CompoundStatement implements IStatement {

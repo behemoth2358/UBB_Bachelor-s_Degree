@@ -1,7 +1,4 @@
-package com.company.Models.Utils;
-
-import com.company.Models.Utils.MyIStack;
-import com.company.Models.Utils.MyList;
+package com.company.Utils;
 
 public class MyStack<T> implements MyIStack<T> {
 

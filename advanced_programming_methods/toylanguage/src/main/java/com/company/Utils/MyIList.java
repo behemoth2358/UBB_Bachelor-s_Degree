@@ -1,4 +1,4 @@
-package com.company.Models.Utils;
+package com.company.Utils;
 
 public interface MyIList<T> {
     void add(T element);

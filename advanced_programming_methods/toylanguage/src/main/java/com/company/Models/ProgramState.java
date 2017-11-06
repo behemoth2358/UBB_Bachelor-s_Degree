@@ -1,9 +1,9 @@
 package com.company.Models;
 
-import com.company.Models.Utils.MyIDictionary;
-import com.company.Models.Utils.MyIList;
-import com.company.Models.Utils.MyIStack;
-import com.company.Models.Utils.Pair;
+import com.company.Utils.MyIDictionary;
+import com.company.Utils.MyIList;
+import com.company.Utils.MyIStack;
+import com.company.Utils.Pair;
 
 import java.io.BufferedReader;
 import java.time.LocalTime;

@@ -4,7 +4,7 @@ import com.company.Controller.Controller;
 import com.company.Models.*;
 import com.company.Models.Expressions.*;
 import com.company.Models.Statements.*;
-import com.company.Models.Utils.*;
+import com.company.Utils.*;
 import com.company.Repository.Repository;
 import com.company.Views.Command;
 import com.company.Views.Commands.ExitCommand;
@@ -19,7 +19,7 @@ public class Main {
 
         Repository repository = getRepositoryExample2();
 
-        Controller controller = new Controller(repository, "/home/bogdanboboc97/IdeaProjects/toylanguage/src/main/java/com/company/Config/dev.json");
+        Controller controller = new Controller(repository);
 
         TextMenu textMenu = new TextMenu();
 

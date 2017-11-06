@@ -1,6 +1,6 @@
 package com.company.Models;
 
-import com.company.Models.Utils.MyDictionary;
+import com.company.Utils.MyDictionary;
 
 import java.util.HashMap;
 

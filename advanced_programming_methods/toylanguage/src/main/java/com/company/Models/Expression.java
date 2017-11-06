@@ -1,6 +1,6 @@
 package com.company.Models;
 
-import com.company.Models.Utils.MyIDictionary;
+import com.company.Utils.MyIDictionary;
 
 public abstract class Expression {
 

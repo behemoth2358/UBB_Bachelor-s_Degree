@@ -2,7 +2,7 @@ package com.company.Models.Statements;
 
 import com.company.Models.Expression;
 import com.company.Models.IStatement;
-import com.company.Models.Utils.MyIDictionary;
+import com.company.Utils.MyIDictionary;
 import com.company.Models.ProgramState;
 
 public class AssignmentStatement implements IStatement {

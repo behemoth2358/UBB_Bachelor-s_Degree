@@ -1,8 +1,8 @@
 package com.company.Models.Statements;
 
 import com.company.Models.*;
-import com.company.Models.Utils.MyIDictionary;
-import com.company.Models.Utils.MyIList;
+import com.company.Utils.MyIDictionary;
+import com.company.Utils.MyIList;
 
 public class PrintStatement implements IStatement {
     private Expression expression;
