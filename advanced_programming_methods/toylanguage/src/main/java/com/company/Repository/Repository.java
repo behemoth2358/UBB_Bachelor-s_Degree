@@ -9,24 +9,31 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import java.util.ArrayList;
+
 
 public class Repository implements IRepository {
-    private MyIList<ProgramState> data;
+    private List<ProgramState> data;
     private String logFilePath;
 
     public Repository(String logFilePath) {
-        this.data = new MyList<>();
+        this.data = new ArrayList<>();
         this.logFilePath = logFilePath;
     }
 
-    public Repository(MyIList<ProgramState> data, String logFilePath) {
+    public Repository(List<ProgramState> data, String logFilePath) {
         this.data = data;
         this.logFilePath = logFilePath;
     }
 
     @Override
-    public MyIList<ProgramState> getData() {
-        return this.data;
+    public List<ProgramState> getData() {
+        return new ArrayList<>(this.data);
+    }
+
+    public void setData(List<ProgramState> l) {
+        this.data = l;
     }
 
     @Override
@@ -36,11 +43,11 @@ public class Repository implements IRepository {
 
     @Override
     public void remove(ProgramState element) {
-
+        //TODO implement this
     }
 
     @Override
-    public void logProgramState() throws Exception {
+    public void logProgramState(ProgramState program) throws Exception {
         PrintWriter logger;
 
         try {
@@ -49,10 +56,7 @@ public class Repository implements IRepository {
             throw ExceptionFactory.create("repository", "Couldn't open log file!");
         }
 
-        for(int i = 0; i < this.data.size(); i++) {
-            logger.println("\n-----------------------------------------------\n"
-                    + this.data.get(i));
-        }
+        logger.println("\n-----------------------------------------------\n" + program);
 
         logger.close();
     }

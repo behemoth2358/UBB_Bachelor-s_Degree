@@ -1,30 +1,29 @@
 package com.company.Models.Expressions;
 
-import com.company.Models.ExceptionFactory;
 import com.company.Models.Expression;
 import com.company.Models.ProgramState.ProgramState;
+import com.company.Models.Tables.HeapTable;
 import com.company.Utils.MyIDictionary;
 
-public class VariableExpression extends Expression {
+public class ReadFromHeapExpression extends Expression {
     private String variableName;
 
-    public VariableExpression(String variableName) {
+    public ReadFromHeapExpression(String variableName){
         this.variableName = variableName;
     }
 
     @Override
     public int eval(ProgramState state) throws Exception {
         MyIDictionary<String, Integer> symTable = state.getSymTable();
+        HeapTable heapTable = state.getHeapTable();
 
-        if (!symTable.contains(this.variableName)) {
-            throw ExceptionFactory.create("variable", "variable not declared!");
-        }
+        int address = symTable.getValue(variableName);
 
-        return symTable.getValue(this.variableName);
+        return heapTable.getValue(address);
     }
 
     @Override
     public String toString() {
-        return variableName;
+        return "ReadFromHeap(" + variableName + ")";
     }
 }

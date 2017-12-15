@@ -20,6 +20,6 @@
 	(setq min_nr (get_min_number collection))
 	(cond 
 		((null min_nr) nil)
-		(T (cons min_nr (delete_first_occurrence collection min_nr)))
+		(T (cons min_nr (sort_collection (delete_first_occurrence collection min_nr))))
 	)
 )

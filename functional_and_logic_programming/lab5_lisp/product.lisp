@@ -1,6 +1,6 @@
 ;;;;Write a function to return the product of all numerical atoms in a list, at any level.
 
-(defun product(collection)
+(defun product (collection)
 	(cond
 		((null collection) 1)
 		((numberp (car collection)) (* (car collection) (product (cdr collection))))

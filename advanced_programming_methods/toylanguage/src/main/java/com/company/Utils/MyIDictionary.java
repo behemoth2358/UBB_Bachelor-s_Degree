@@ -1,5 +1,6 @@
 package com.company.Utils;
 
+import java.util.HashMap;
 import java.util.Set;
 
 public interface MyIDictionary<K, V> {
@@ -10,4 +11,5 @@ public interface MyIDictionary<K, V> {
     void setValue(K key, V value);
     V getValue(K key);
     Set<K> getKeys();
+    HashMap<K, V> getMyDictionary();
 }

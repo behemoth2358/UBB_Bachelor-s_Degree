@@ -28,6 +28,10 @@ public class ExceptionFactory {
             return new FileException(message);
         }
 
+        if (type.equalsIgnoreCase("heap")) {
+            return new HeapException(message);
+        }
+
         return null;
     }
 }

@@ -1,5 +1,6 @@
 package com.company.Utils;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Set;
 
@@ -9,6 +10,10 @@ public class MyDictionary<K, V> implements MyIDictionary<K, V> {
 
     public MyDictionary() {
         this.myDictionary = new HashMap<>();
+    }
+
+    public MyDictionary(HashMap<K, V> dictionary) {
+        this.myDictionary = (HashMap<K, V>) dictionary.clone();
     }
 
     @Override
@@ -39,5 +44,9 @@ public class MyDictionary<K, V> implements MyIDictionary<K, V> {
     @Override
     public Set<K> getKeys() {
         return this.myDictionary.keySet();
+    }
+
+    public HashMap<K, V> getMyDictionary() {
+        return myDictionary;
     }
 }

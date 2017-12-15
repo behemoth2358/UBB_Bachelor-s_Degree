@@ -1,6 +1,7 @@
 package com.company.Models.Expressions;
 
 import com.company.Models.Expression;
+import com.company.Models.ProgramState.ProgramState;
 import com.company.Utils.MyIDictionary;
 
 public class ConstantExpression extends Expression {
@@ -11,7 +12,7 @@ public class ConstantExpression extends Expression {
     }
 
     @Override
-    public int eval(MyIDictionary<String, Integer> symTable) {
+    public int eval(ProgramState state) {
         return this.value;
     }
 

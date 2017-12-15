@@ -21,9 +21,8 @@ public class IfStatement implements IStatement {
     @Override
     public ProgramState execute(ProgramState state) throws Exception {
         MyIStack<IStatement> stack = state.getExeStack();
-        MyIDictionary<String, Integer> symTable = state.getSymTable();
 
-        int expressionValue = this.expression.eval(symTable);
+        int expressionValue = this.expression.eval(state);
 
         if (expressionValue != 0) {
             stack.push(this.thenStatement);
@@ -31,16 +30,16 @@ public class IfStatement implements IStatement {
             stack.push(this.elseStatement);
         }
 
-        return state;
+        return null;
     }
 
     @Override
     public String toString() {
 
         return "if (" + this.expression.toString() + ") {\n" +
-                "\t" + this.thenStatement.toString() +
+                this.thenStatement.toString() +
                 "\nelse {\n" +
-                "\t" + this.elseStatement.toString() +
-                "\n}";
+                this.elseStatement.toString() +
+                "\n}\n";
     }
 }

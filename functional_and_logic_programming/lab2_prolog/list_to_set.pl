@@ -25,7 +25,7 @@ list_to_set([H|T], Result) :-
 
 add_in_set(Set, Elem, Occurrences, ResultSet) :-
 	Occurrences =:= 0,
-	append([Elem], Set, ResultSet).
+	ResultSet = [Elem|Set].
 
 add_in_set(Set, _, Occurrences, ResultSet) :-
 	Occurrences =\= 0,

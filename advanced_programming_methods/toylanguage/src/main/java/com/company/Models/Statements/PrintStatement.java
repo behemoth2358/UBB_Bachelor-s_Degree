@@ -17,12 +17,12 @@ public class PrintStatement implements IStatement {
         MyIList<Integer> output = state.getOutput();
         MyIDictionary<String, Integer> symTable = state.getSymTable();
 
-        int expressionOutput = this.expression.eval(symTable);
+        int expressionOutput = this.expression.eval(state);
 
         System.out.println(expressionOutput);
         output.add(expressionOutput);
 
-        return state;
+        return null;
     }
 
     @Override

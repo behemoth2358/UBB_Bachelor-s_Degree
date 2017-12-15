@@ -5,22 +5,23 @@ import com.company.Models.*;
 import com.company.Models.Expressions.*;
 import com.company.Models.ProgramState.ProgramState;
 import com.company.Models.Statements.*;
-import com.company.Models.Tables.FileTable;
-import com.company.Models.Tables.SymTable;
+import com.company.Models.Tables.*;
 import com.company.Utils.*;
 import com.company.Repository.Repository;
 import com.company.Views.Command;
-import com.company.Views.Commands.ExitCommand;
-import com.company.Views.Commands.RunProgramCommand;
+import com.company.Views.Commands.*;
 import com.company.Views.TextMenu;
 
 import java.io.BufferedReader;
+import java.util.List;
+import java.util.ArrayList;
+
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Repository repository = getRepositoryExample2();
+        Repository repository = getRepository();
 
         Controller controller = new Controller(repository);
 
@@ -35,103 +36,51 @@ public class Main {
         textMenu.run();
     }
 
-    private static Repository getRepositoryExample1() {
-        MyList<ProgramState> programs = new MyList<>();
+    private static Repository getRepository() {
+        List<ProgramState> programs = new ArrayList<>();
 
         MyIDictionary<String, Integer> symTable = new SymTable();
         MyIDictionary<Integer, Pair<String, BufferedReader>> fileTable = new FileTable();
+        HeapTable heapTable = new HeapTable();
         MyIStack<IStatement> stack = new MyStack<>();
         MyList<Integer> output = new MyList<>();
 
         IStatement firstStatement =
-                new AssignmentStatement("x",
-                        new ArithmeticExpression(
-                                new ConstantExpression(5),
-                                new String("-"),
-                                new ConstantExpression(5)
+                new AssignmentStatement("n",
+                        new ConstantExpression(10)
+                );
+
+        IStatement secondStatement =
+                new ForkStatement(
+                        new CompoundStatement(
+                                new AssignmentStatement(
+                                        "n",
+                                        new ArithmeticExpression(
+                                                new VariableExpression("n"),
+                                                "+",
+                                                new ConstantExpression(10)
+                                        )
+                                ),
+                                new PrintStatement(new VariableExpression("n"))
                         )
                 );
 
-        IStatement secondStatement = new IfStatement(
-                        new VariableExpression("x"),
-                        new AssignmentStatement(
-                                "x",
-                                new ConstantExpression(20)
-                        ),
-                        new AssignmentStatement(
-                                "x",
-                                new ArithmeticExpression(
-                                        new VariableExpression("x"),
-                                        "+",
-                                        new ConstantExpression(1)
-                                )
-                        )
-                );
+        IStatement thirdStatement = new AssignmentStatement(
+                    "n",
+                    new ArithmeticExpression(
+                            new VariableExpression("n"),
+                            "-",
+                            new ConstantExpression(10)
+                    )
+            );
+        IStatement fourthStatement = new PrintStatement(new VariableExpression("n"));
 
-        IStatement thirdStatement = new PrintStatement(
-                new VariableExpression("x")
-        );
-
-        stack.push(thirdStatement);
-        stack.push(secondStatement);
-        stack.push(firstStatement);
-
-        ProgramState program = new ProgramState(symTable, fileTable, stack, output);
-
-        programs.add(program);
-
-        return new Repository(programs, "/home/bogdanboboc97/IdeaProjects/toylanguage/src/main/java/com/company/log.txt");
-    }
-
-    private static Repository getRepositoryExample2() {
-        MyList<ProgramState> programs = new MyList<>();
-
-        MyIDictionary<String, Integer> symTable = new SymTable();
-        MyIDictionary<Integer, Pair<String, BufferedReader>> fileTable = new FileTable();
-        MyIStack<IStatement> stack = new MyStack<>();
-        MyList<Integer> output = new MyList<>();
-
-        IStatement firstStatement = new OpenFileStatement(
-                "file1",
-                "/home/bogdanboboc97/IdeaProjects/toylanguage/src/main/java/com/company/file1.txt"
-        );
-
-        IStatement secondStatement = new OpenFileStatement(
-                "file2",
-                "/home/bogdanboboc97/IdeaProjects/toylanguage/src/main/java/com/company/file2.txt"
-        );
-
-        IStatement thirdStatement = new ReadFileStatement(
-                "x",
-                new VariableExpression("file1")
-        );
-
-        IStatement fourthStatement = new ReadFileStatement(
-                "y",
-                new VariableExpression("file2")
-        );
-
-        IStatement fifthStatement = new AssignmentStatement(
-                "z",
-                new ArithmeticExpression(
-                        new VariableExpression("x"),
-                        "+",
-                        new VariableExpression("y")
-                )
-        );
-
-        IStatement sixthStatement = new PrintStatement(
-                new VariableExpression("z")
-        );
-
-        stack.push(sixthStatement);
-        stack.push(fifthStatement);
         stack.push(fourthStatement);
         stack.push(thirdStatement);
         stack.push(secondStatement);
         stack.push(firstStatement);
 
-        ProgramState program = new ProgramState(symTable, fileTable, stack, output);
+        ProgramState program = new ProgramState(symTable, fileTable, heapTable, stack, output);
 
         programs.add(program);
 

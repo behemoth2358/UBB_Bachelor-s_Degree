@@ -1,17 +1,23 @@
 
 -----------------------------------------------
-Date: 09:13:28.575
-
+PROGRAM ID 1
 Symbol table: 
-file1 = 1725154839
+n = 10
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
 
 
 Stack: 
-OpenFile(file2, "/home/bogdanboboc97/IdeaProjects/toylanguage/src/main/java/com/company/file2.txt")
-ReadFile(file1)
-ReadFile(file2)
-z = x + y
-print (z)
+Fork(
+n = n + 10
+print (n)
+n)
+n = n - 10
+print (n)
 
 
 List: 
@@ -20,18 +26,20 @@ list is empty
 
 
 -----------------------------------------------
-Date: 09:13:28.585
-
+PROGRAM ID 1
 Symbol table: 
-file2 = 1338668845
-file1 = 1725154839
+n = 10
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
 
 
 Stack: 
-ReadFile(file1)
-ReadFile(file2)
-z = x + y
-print (z)
+n = n - 10
+print (n)
 
 
 List: 
@@ -40,18 +48,20 @@ list is empty
 
 
 -----------------------------------------------
-Date: 09:13:28.585
-
+PROGRAM ID 2
 Symbol table: 
-file2 = 1338668845
-x = 6
-file1 = 1725154839
+n = 10
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
 
 
 Stack: 
-ReadFile(file2)
-z = x + y
-print (z)
+n = n + 10
+print (n)
 
 
 List: 
@@ -60,18 +70,19 @@ list is empty
 
 
 -----------------------------------------------
-Date: 09:13:28.585
-
+PROGRAM ID 1
 Symbol table: 
-file2 = 1338668845
-x = 6
-y = 1
-file1 = 1725154839
+n = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
 
 
 Stack: 
-z = x + y
-print (z)
+print (n)
 
 
 List: 
@@ -80,18 +91,20 @@ list is empty
 
 
 -----------------------------------------------
-Date: 09:13:28.585
-
+PROGRAM ID 2
 Symbol table: 
-file2 = 1338668845
-x = 6
-y = 1
-z = 7
-file1 = 1725154839
+n = 10
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
 
 
 Stack: 
-print (z)
+n = n + 10
+print (n)
 
 
 List: 
@@ -100,21 +113,66 @@ list is empty
 
 
 -----------------------------------------------
-Date: 09:13:28.585
-
+PROGRAM ID 1
 Symbol table: 
-file2 = 1338668845
-x = 6
-y = 1
-z = 7
-file1 = 1725154839
+n = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
 
 
 Stack: 
 list is empty
 
 List: 
-7
+0
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 2
+Symbol table: 
+n = 20
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+print (n)
+
+
+List: 
+0
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 2
+Symbol table: 
+n = 20
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+list is empty
+
+List: 
+0
+20
 
 
 

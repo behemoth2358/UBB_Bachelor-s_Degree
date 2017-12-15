@@ -2,13 +2,12 @@
 Define a predicate to determine the greatest common divisor of all numbers in a list.
 */
 
-gcd(0, _, _) :- 
-	true.
-
 gcd(X, 0, Result) :-
+	X =\= 0,
 	Result is X.
 
 gcd(X, Y, Result) :- 
+	Y =\= 0,
 	Z is mod(X, Y),
 	gcd(Y, Z, Result).
 

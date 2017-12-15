@@ -2,6 +2,7 @@ package com.company.Models.Expressions;
 
 import com.company.Models.ExceptionFactory;
 import com.company.Models.Expression;
+import com.company.Models.ProgramState.ProgramState;
 import com.company.Utils.MyIDictionary;
 
 public class ArithmeticExpression extends Expression {
@@ -9,41 +10,41 @@ public class ArithmeticExpression extends Expression {
     private String operator;
     private Expression leftSide;
 
-    public ArithmeticExpression(Expression rightSide, String operator, Expression leftSide) {
-        this.rightSide = rightSide;
-        this.operator = operator;
+    public ArithmeticExpression(Expression leftSide, String operator, Expression rightSide) {
         this.leftSide = leftSide;
+        this.operator = operator;
+        this.rightSide = rightSide;
     }
 
-    public int eval(MyIDictionary<String, Integer> symTable) throws Exception {
+    public int eval(ProgramState state) throws Exception {
 
-        int rightSideValue = rightSide.eval(symTable);
-        int leftSideValue = leftSide.eval(symTable);
+        int rightSideValue = rightSide.eval(state);
+        int leftSideValue = leftSide.eval(state);
 
         if (operator.equals("+")) {
-            return rightSideValue + leftSideValue;
+            return leftSideValue + rightSideValue;
         }
 
         if (operator.equals("-")) {
-            return rightSideValue - leftSideValue;
+            return leftSideValue - rightSideValue;
         }
 
         if (operator.equals("/")) {
-            if (leftSideValue == 0) {
+            if (rightSideValue == 0) {
                 throw ExceptionFactory.create("expression", "division by 0!");
             }
-            return rightSideValue / leftSideValue;
+            return leftSideValue / rightSideValue;
         }
 
         if (operator.equals("*")) {
-            return rightSideValue * leftSideValue;
+            return leftSideValue * rightSideValue;
         }
 
         if (operator.equals("%")) {
-            if (leftSideValue == 0) {
+            if (rightSideValue == 0) {
                 throw ExceptionFactory.create("expression", "division by 0!");
             }
-            return rightSideValue % leftSideValue;
+            return leftSideValue % rightSideValue;
         }
 
         return 0;
@@ -51,6 +52,6 @@ public class ArithmeticExpression extends Expression {
 
     @Override
     public String toString() {
-        return rightSide.toString() + " " + this.operator + " " + leftSide.toString();
+        return leftSide.toString() + " " + this.operator + " " + rightSide.toString();
     }
 }

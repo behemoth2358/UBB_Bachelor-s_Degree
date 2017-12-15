@@ -22,7 +22,7 @@ public class ReadFileStatement implements IStatement {
         MyIDictionary<String, Integer> symbolTable = state.getSymTable();
         MyIDictionary<Integer, Pair<String, BufferedReader>> fileTable = state.getFileTable();
 
-        int fileID = this.expressionFileID.eval(symbolTable);
+        int fileID = this.expressionFileID.eval(state);
 
         Pair<String, BufferedReader> fileHandler = fileTable.getValue(fileID);
 
@@ -40,7 +40,7 @@ public class ReadFileStatement implements IStatement {
 
         symbolTable.add(this.variableName, value);
 
-        return state;
+        return null;
     }
 
     @Override

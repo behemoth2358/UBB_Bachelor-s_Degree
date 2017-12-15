@@ -40,7 +40,7 @@ public class OpenFileStatement implements IStatement {
         fileTable.add(fileID, new Pair<>(this.filePath, reader));
         symbolTable.add(this.variableFileID, fileID);
 
-        return state;
+        return null;
     }
 
     @Override

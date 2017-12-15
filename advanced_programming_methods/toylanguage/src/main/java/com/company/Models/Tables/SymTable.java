@@ -10,6 +10,10 @@ public class SymTable extends MyDictionary<String, Integer> {
         this.myDictionary = new HashMap<>();
     }
 
+    public SymTable(SymTable symTable) {
+        this.myDictionary = (HashMap<String, Integer>) symTable.getMyDictionary().clone();
+    }
+
     @Override
     public String toString() {
         StringBuilder out = new StringBuilder("Symbol table: \n");

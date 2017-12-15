@@ -26,7 +26,7 @@ public class View {
 
         if (command == 1) {
             try {
-                this.controller.executeOne();
+                this.controller.executeAllProgram();
             } catch (Exception e) {
                 e.printStackTrace();
             }

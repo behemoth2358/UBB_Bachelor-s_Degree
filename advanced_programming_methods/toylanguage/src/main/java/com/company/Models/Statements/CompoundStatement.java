@@ -21,11 +21,11 @@ public class CompoundStatement implements IStatement {
         stack.push(secondStatement);
         stack.push(firstStatement);
 
-        return state;
+        return null;
     }
 
     @Override
     public String toString() {
-        return firstStatement.toString() + ";" + secondStatement.toString();
+        return firstStatement.toString() + "\n" + secondStatement.toString();
     }
 }
