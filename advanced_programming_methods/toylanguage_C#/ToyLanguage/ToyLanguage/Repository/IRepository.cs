@@ -1,10 +1,11 @@
-﻿using ToyLanguage.Models.States;
+﻿using System.Collections.Generic;
+using ToyLanguage.Models.States;
 
 namespace ToyLanguage.Repository
 {
     public interface IRepository
     {
-        ProgramState getProgram();
-        void logProgramState(ProgramState program);
+        List<ProgramState> Programs { get; set; }
+        void LogProgramState(ProgramState program);
     }
 }

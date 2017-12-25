@@ -6,20 +6,22 @@ namespace ToyLanguage.Repository
     public class Repository : IRepository
     {
         private List<ProgramState> _programs;
-        private string _logFilePath;
+
+        public List<ProgramState> Programs
+        {
+            get { return _programs; }
+            set { _programs = value; }
+        }
+        
+        private readonly string _logFilePath;
 
         public Repository(string logFilePath, List<ProgramState> programs = null)
         {
             _programs = programs ?? new List<ProgramState>();
             _logFilePath = logFilePath;
         }
-        
-        public ProgramState getProgram()
-        {
-            return _programs[0];
-        }
 
-        public void logProgramState(ProgramState program)
+        public void LogProgramState(ProgramState program)
         {
             using (System.IO.StreamWriter file = 
                 new System.IO.StreamWriter(_logFilePath, true))

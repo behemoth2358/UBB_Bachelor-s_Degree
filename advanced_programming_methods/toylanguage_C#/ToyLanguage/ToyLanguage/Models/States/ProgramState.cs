@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection;
-using System.Runtime.InteropServices;
 using System.Text;
 using ToyLanguage.Models.Interfaces;
 
@@ -46,7 +44,6 @@ namespace ToyLanguage.Models.States
         public ProgramState()
         {
             _symbolTable = new Dictionary<string, int>();
-            _fileTable = new Dictionary<int, Tuple<string, StreamReader>>();
             _executionStack = new Stack<IStatement>();
             _output = new List<string>();
         }

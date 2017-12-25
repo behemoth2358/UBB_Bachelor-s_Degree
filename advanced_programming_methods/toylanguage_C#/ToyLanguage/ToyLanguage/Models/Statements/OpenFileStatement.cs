@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Runtime.CompilerServices;
 using ToyLanguage.Models.Interfaces;
 using ToyLanguage.Models.States;
 

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using ToyLanguage.Controller;
 using ToyLanguage.Models.Expressions;
 using ToyLanguage.Models.Interfaces;

@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using ToyLanguage.Models.States;
+﻿using ToyLanguage.Models.States;
 using ToyLanguage.Repository;
 
 namespace ToyLanguage.Controller
@@ -22,15 +21,15 @@ namespace ToyLanguage.Controller
 
         public void ExecuteProgram()
         {
-            var program = _repository.getProgram();
+            var program = _repository.Programs[0];
             
-            _repository.logProgramState(program);
+            _repository.LogProgramState(program);
             
             while (program.ExecutionStack.Count != 0)
             {
                 
                 ExecuteOneInstruction(program);
-                _repository.logProgramState(program);
+                _repository.LogProgramState(program);
             }
         }
     }
