@@ -13,14 +13,16 @@ namespace ToyLanguage
     {
         public static void Main(string[] args)
         {
-            ProgramState program = new ProgramState();
-            program.ExecutionStack = GetExampleProgram2();
+            var program = new ProgramState()
+            {
+                ExecutionStack = GetExampleProgram2()
+            };
             IRepository repository = new Repository.Repository(
                 "/home/bogdanboboc97/RiderProjects/ToyLanguage/ToyLanguage/logFile.txt", 
                 new List<ProgramState>( new[] { program }));
-            ToyLanguageController controller = new ToyLanguageController(repository);
+            var controller = new ToyLanguageController(repository);
 
-            TextMenu menu = new TextMenu();
+            var menu = new TextMenu();
             
             menu.AddCommand(new ExitCommand(controller));
             menu.AddCommand(new RunProgramCommand(controller));
@@ -30,7 +32,7 @@ namespace ToyLanguage
 
         public static Stack<IStatement> GetExampleProgram1()
         {
-            Stack<IStatement> exeStack = new Stack<IStatement>();
+            var exeStack = new Stack<IStatement>();
             
             IStatement firstStatement = new AssignmentStatement(
                 "x",
@@ -69,7 +71,7 @@ namespace ToyLanguage
         
         public static Stack<IStatement> GetExampleProgram2()
         {
-            Stack<IStatement> exeStack = new Stack<IStatement>();
+            var exeStack = new Stack<IStatement>();
             
             IStatement firstStatement = new OpenFileStatement(
                 "fl",

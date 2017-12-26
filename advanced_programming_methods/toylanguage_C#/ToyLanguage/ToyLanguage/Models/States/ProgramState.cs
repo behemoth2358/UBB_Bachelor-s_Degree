@@ -50,10 +50,10 @@ namespace ToyLanguage.Models.States
 
         public override string ToString()
         {
-            StringBuilder symbolTableStr = new StringBuilder("\n\nSymbol Table:\n");
-            StringBuilder fileTableStr = new StringBuilder("\n\nFile Table:\n");
-            StringBuilder exeStackStr = new StringBuilder("\n\nExe. Stack:\n");
-            StringBuilder outputStr = new StringBuilder("\n\nOutput:\n");
+            var symbolTableStr = new StringBuilder("\n\nSymbol Table:\n");
+            var fileTableStr = new StringBuilder("\n\nFile Table:\n");
+            var exeStackStr = new StringBuilder("\n\nExe. Stack:\n");
+            var outputStr = new StringBuilder("\n\nOutput:\n");
             
             _symbolTable.ToList().ForEach(p => symbolTableStr.Append($"\n{p.Key} = {p.Value.ToString()}"));
             _fileTable.ToList().ForEach(p => fileTableStr.Append($"{p.Key} -> {p.Value.Item1}"));
