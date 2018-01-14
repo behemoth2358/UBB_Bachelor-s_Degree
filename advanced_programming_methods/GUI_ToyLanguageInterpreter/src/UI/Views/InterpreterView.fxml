@@ -24,7 +24,7 @@
             <Font size="21.0" />
          </font>
       </Button>
-      <Button blendMode="EXCLUSION" layoutX="1000.0" layoutY="267.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="200.0" text="Run">
+      <Button fx:id="runButton" blendMode="EXCLUSION" layoutX="1000.0" layoutY="267.0" mnemonicParsing="false" onAction="#runButton_onAction" prefHeight="70.0" prefWidth="200.0" text="Run">
          <font>
             <Font size="21.0" />
          </font>

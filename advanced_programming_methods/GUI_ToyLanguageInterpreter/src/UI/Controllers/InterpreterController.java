@@ -1,6 +1,7 @@
 package UI.Controllers;
 
 import Interpreter.Controller.Controller;
+import Interpreter.Models.IStatement;
 import Interpreter.Models.ProgramState.ProgramState;
 import javafx.scene.control.*;
 import javafx.fxml.FXML;
@@ -34,21 +35,21 @@ public class InterpreterController implements Initializable {
     }
 
     private void loadData() {
-        programs.getItems().setAll( controller.getPrograms().stream().map(p -> p.getID()).collect(Collectors.toList()));
+        programs.getItems().setAll( controller.getPrograms().stream().map(ProgramState::getID).collect(Collectors.toList()));
         if (selectedProgram != null) {
-            List<String> exeStackElems = selectedProgram.getExeStack().getData().stream().map(p -> p.toString()).collect(Collectors.toList());
+            List<String> exeStackElems = selectedProgram.getExeStack().getData().stream().map(IStatement::toString).collect(Collectors.toList());
             Collections.reverse(exeStackElems);
             executionStack.getItems().setAll(exeStackElems);
-            output.getItems().setAll(selectedProgram.getOutput().getData().stream().map(p -> p.toString()).collect(Collectors.toList()));
+            output.getItems().setAll(selectedProgram.getOutput().getData().stream().map(Object::toString).collect(Collectors.toList()));
 
             symbolTableNames.getItems().setAll(selectedProgram.getSymTable().getKeys());
-            symbolTableValues.getItems().setAll(selectedProgram.getSymTable().getValues().stream().map(p -> p.toString()).collect(Collectors.toList()));
+            symbolTableValues.getItems().setAll(selectedProgram.getSymTable().getValues().stream().map(Object::toString).collect(Collectors.toList()));
 
-            fileTableNames.getItems().setAll(selectedProgram.getFileTable().getKeys().stream().map(p -> p.toString()).collect(Collectors.toList()));
+            fileTableNames.getItems().setAll(selectedProgram.getFileTable().getKeys().stream().map(Object::toString).collect(Collectors.toList()));
             fileTablePaths.getItems().setAll(selectedProgram.getFileTable().getValues().stream().map(p -> p.getSecond().toString()).collect(Collectors.toList()));
 
-            heapTableAddresses.getItems().setAll(selectedProgram.getHeapTable().getKeys().stream().map(p -> p.toString()).collect(Collectors.toList()));
-            heapTableValues.getItems().setAll(selectedProgram.getHeapTable().getValues().stream().map(p -> p.toString()).collect(Collectors.toList()));
+            heapTableAddresses.getItems().setAll(selectedProgram.getHeapTable().getKeys().stream().map(Object::toString).collect(Collectors.toList()));
+            heapTableValues.getItems().setAll(selectedProgram.getHeapTable().getValues().stream().map(Object::toString).collect(Collectors.toList()));
         }
     }
 
@@ -56,6 +57,10 @@ public class InterpreterController implements Initializable {
 
     public void setController(Controller cont) {
         controller = cont;
+
+        selectedProgram = controller.getPrograms().get(0);
+        selectedProgramID = selectedProgram.getID();
+        currentSelectedProgram.setText(selectedProgramID.toString());
 
         loadData();
     }

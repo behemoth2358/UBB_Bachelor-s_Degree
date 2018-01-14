@@ -2496,3 +2496,694 @@ List:
 
 
 
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+n = 10
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+Fork(
+n = n + 10
+print (n)
+)
+n = n - 10
+print (n)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+n = 10
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+n = n - 10
+print (n)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 3
+Symbol table: 
+n = 10
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+n = n + 10
+print (n)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+n = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+print (n)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 3
+Symbol table: 
+n = 10
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+n = n + 10
+print (n)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+n = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+list is empty
+
+List: 
+0
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 3
+Symbol table: 
+n = 20
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+print (n)
+
+
+List: 
+0
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 3
+Symbol table: 
+n = 20
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+list is empty
+
+List: 
+0
+20
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+n = 10
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+Fork(
+n = n + 10
+print (n)
+)
+n = n - 10
+print (n)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+n = 10
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+n = n - 10
+print (n)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 3
+Symbol table: 
+n = 10
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+n = n + 10
+print (n)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+n = 10
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+Fork(
+n = n + 10
+print (n)
+)
+n = n - 10
+print (n)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+n = 10
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+n = n - 10
+print (n)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 3
+Symbol table: 
+n = 10
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+n = n + 10
+print (n)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+n = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+print (n)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 3
+Symbol table: 
+n = 10
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+n = n + 10
+print (n)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+n = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+list is empty
+
+List: 
+0
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 3
+Symbol table: 
+n = 20
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+print (n)
+
+
+List: 
+0
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 3
+Symbol table: 
+n = 20
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+list is empty
+
+List: 
+0
+20
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+n = 10
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+Fork(
+n = n + 10
+print (n)
+)
+n = n - 10
+print (n)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+n = 10
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+n = n - 10
+print (n)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 3
+Symbol table: 
+n = 10
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+n = n + 10
+print (n)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+n = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+print (n)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 3
+Symbol table: 
+n = 10
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+n = n + 10
+print (n)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 1
+Symbol table: 
+n = 0
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+list is empty
+
+List: 
+0
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 3
+Symbol table: 
+n = 20
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+print (n)
+
+
+List: 
+0
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 3
+Symbol table: 
+n = 20
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+list is empty
+
+List: 
+0
+20
+
+
+
+
+-----------------------------------------------
+PROGRAM ID 2
+Symbol table: 
+x = 1
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+Address 1 holds value 12
+
+
+Stack: 
+WriteInHeap(x, ReadFromHeap(x) + 2)
+x = 2
+print (x)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 2
+Symbol table: 
+x = 1
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+Address 1 holds value 14
+
+
+Stack: 
+x = 2
+print (x)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 2
+Symbol table: 
+x = 2
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+Address 1 holds value 14
+
+
+Stack: 
+print (x)
+
+
+List: 
+list is empty
+
+
+
+-----------------------------------------------
+PROGRAM ID 2
+Symbol table: 
+x = 2
+
+File table: 
+dictionary is empty.
+
+Heap table: 
+dictionary is empty.
+
+
+Stack: 
+list is empty
+
+List: 
+2
+
+
+
