@@ -1,6 +1,7 @@
 package UI.Controllers;
 
 import Interpreter.Controller.Controller;
+import UI.Example;
 import UI.Interpreter;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -18,7 +19,7 @@ public class StartUpController implements Initializable {
     public StartUpController() { }
 
     @FXML
-    private ListView<String> programsList = new ListView<>();
+    private ListView<String> programsList;
 
     @FXML
     private Button exitButton;
@@ -47,11 +48,11 @@ public class StartUpController implements Initializable {
 
     private List<Controller> controllers;
 
-    public void setProgramsList(List<Controller> programs) {
+    public void setPrograms(List<Example> programs) {
 
-        controllers = programs;
+        controllers = programs.stream().map(Example::getController).collect(Collectors.toList());
         programsList.setItems(FXCollections.observableArrayList(
-            programs.stream().map(Controller::getProgramName).collect(Collectors.toList()))
+            programs.stream().map(Example::getName).collect(Collectors.toList()))
         );
     }
 

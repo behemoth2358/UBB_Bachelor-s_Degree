@@ -16,15 +16,14 @@ import java.util.stream.Collectors;
 public class Controller {
     private Repository repository;
     private final ExecutorService executor = Executors.newFixedThreadPool(10);
-    private final String programName;
 
-    public List<ProgramState> getPrograms() { return repository.getData(); }
-    public Controller(Repository repository, String programName) {
+    public Controller(Repository repository) {
         this.repository = repository;
-        this.programName = programName;
     }
 
-    public String getProgramName() { return programName; }
+    public List<ProgramState> getPrograms() {
+        return repository.getData();
+    }
 
     private HashMap<Integer, Integer> garbageCollector(
             Collection<Integer> symTableValues, HashMap<Integer, Integer> heapTable) {
@@ -66,10 +65,10 @@ public class Controller {
         });
     }
 
-    public Set<Integer> mergeSymTableValues(List<ProgramState> programs) {
+    private Set<Integer> mergeSymTableValues(List<ProgramState> programs) {
         Set<Integer> result = new HashSet<Integer>();
 
-        programs.stream().forEach(p -> result.addAll(p.getSymTable().getMyDictionary().values()));
+        programs.forEach(p -> result.addAll(p.getSymTable().getMyDictionary().values()));
 
         return result;
     }
@@ -82,7 +81,7 @@ public class Controller {
         while(!programs.isEmpty()) {
             try {
                 executeOneStepForAllPrograms(programs);
-                programs = programs.stream().filter(p -> p.isNotCompleted()).collect(Collectors.toList());
+                programs = programs.stream().filter(ProgramState::isNotCompleted).collect(Collectors.toList());
                 this.repository.setData(programs);
 
                 heapTable.setHashMap(
@@ -95,7 +94,7 @@ public class Controller {
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
-                fileTable.getMyDictionary().values().stream().forEach(f -> {
+                fileTable.getMyDictionary().values().forEach(f -> {
                         try {
                             f.getSecond().close();
                         } catch (Exception e) {
@@ -110,7 +109,7 @@ public class Controller {
         return repository.getData().stream().filter(p -> p.getID() == ID).findFirst().get();
     }
 
-    public boolean executeOneStepProgram() {
+    public void executeOneStepProgram() {
         List<ProgramState> programs = this.repository.getData();
         HeapTable heapTable = programs.get(0).getHeapTable();
         MyIDictionary<Integer, Pair<String, BufferedReader>> fileTable = programs.get(0).getFileTable();
@@ -118,7 +117,7 @@ public class Controller {
         if(!programs.isEmpty()) {
             try {
                 executeOneStepForAllPrograms(programs);
-                programs = programs.stream().filter(p -> p.isNotCompleted()).collect(Collectors.toList());
+                programs = programs.stream().filter(ProgramState::isNotCompleted).collect(Collectors.toList());
                 this.repository.setData(programs);
 
                 heapTable.setHashMap(
@@ -138,10 +137,8 @@ public class Controller {
                     }
                 });
             }
-            return true;
         }
 
-        return false;
     }
 
 }

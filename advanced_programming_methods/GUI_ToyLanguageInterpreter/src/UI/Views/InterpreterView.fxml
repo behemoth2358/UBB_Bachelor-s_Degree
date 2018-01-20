@@ -33,19 +33,25 @@
       <Label alignment="CENTER" layoutX="1000.0" prefHeight="22.0" prefWidth="200.0" text="Programs" />
       <ListView fx:id="output" layoutX="800.0" layoutY="22.0" prefHeight="479.0" prefWidth="200.0" />
       <ListView fx:id="executionStack" layoutY="22.0" prefHeight="479.0" prefWidth="200.0" />
-      <ListView fx:id="symbolTableNames" layoutX="200.0" layoutY="45.0" prefHeight="457.0" prefWidth="100.0" />
-      <ListView fx:id="fileTableNames" layoutX="400.0" layoutY="45.0" prefHeight="457.0" prefWidth="100.0" />
-      <ListView fx:id="heapTableAddresses" layoutX="600.0" layoutY="45.0" prefHeight="457.0" prefWidth="100.0" />
-      <Label alignment="CENTER" blendMode="EXCLUSION" layoutX="200.0" layoutY="25.0" prefHeight="22.0" prefWidth="100.0" text="Name" />
-      <ListView fx:id="symbolTableValues" layoutX="300.0" layoutY="45.0" prefHeight="457.0" prefWidth="100.0" />
-      <ListView fx:id="fileTablePaths" layoutX="500.0" layoutY="45.0" prefHeight="457.0" prefWidth="100.0" />
-      <ListView fx:id="heapTableValues" layoutX="700.0" layoutY="45.0" prefHeight="457.0" prefWidth="100.0" />
-      <Label alignment="CENTER" blendMode="EXCLUSION" layoutX="300.0" layoutY="25.0" prefHeight="22.0" prefWidth="100.0" text="Value" />
-      <Label alignment="CENTER" blendMode="EXCLUSION" layoutX="400.0" layoutY="25.0" prefHeight="22.0" prefWidth="100.0" text="ID" />
-      <Label alignment="CENTER" blendMode="EXCLUSION" layoutX="500.0" layoutY="25.0" prefHeight="22.0" prefWidth="100.0" text="Path" />
-      <Label alignment="CENTER" blendMode="EXCLUSION" layoutX="600.0" layoutY="25.0" prefHeight="22.0" prefWidth="100.0" text="Address" />
-      <Label alignment="CENTER" blendMode="EXCLUSION" layoutX="700.0" layoutY="25.0" prefHeight="22.0" prefWidth="100.0" text="Value" />
       <Label layoutX="1000.0" layoutY="229.0" prefHeight="38.0" prefWidth="117.0" text="Current program:" />
       <TextField fx:id="currentSelectedProgram" editable="false" layoutX="1117.0" layoutY="229.0" prefHeight="38.0" prefWidth="83.0" />
+      <TableView fx:id="symbolTable" layoutX="200.0" layoutY="22.0" prefHeight="479.0" prefWidth="200.0">
+         <columns>
+            <TableColumn fx:id="symbolTableNames" prefWidth="98.0" text="Name" />
+            <TableColumn fx:id="symbolTableValues" prefWidth="101.0" text="Value" />
+         </columns>
+      </TableView>
+      <TableView fx:id="fileTable" layoutX="400.0" layoutY="22.0" prefHeight="479.0" prefWidth="200.0">
+         <columns>
+            <TableColumn fx:id="fileTableNames" prefWidth="98.0" text="ID" />
+            <TableColumn fx:id="fileTablePaths" prefWidth="101.0" text="Path" />
+         </columns>
+      </TableView>
+      <TableView fx:id="heapTable" layoutX="600.0" layoutY="22.0" prefHeight="486.0" prefWidth="200.0">
+         <columns>
+            <TableColumn fx:id="heapTableAddresses" prefWidth="104.0" text="Address" />
+            <TableColumn fx:id="heapTableValues" prefWidth="95.0" text="Value" />
+         </columns>
+      </TableView>
    </children>
 </AnchorPane>

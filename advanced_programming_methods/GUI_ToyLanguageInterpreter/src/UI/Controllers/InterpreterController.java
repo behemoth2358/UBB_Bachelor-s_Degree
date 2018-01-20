@@ -1,15 +1,21 @@
 package UI.Controllers;
 
 import Interpreter.Controller.Controller;
+import Interpreter.Models.Expression;
 import Interpreter.Models.IStatement;
 import Interpreter.Models.ProgramState.ProgramState;
+import javafx.collections.FXCollections;
 import javafx.scene.control.*;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import Interpreter.Utils.Pair;
 
+import java.io.BufferedReader;
 import java.net.URL;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
@@ -22,7 +28,7 @@ public class InterpreterController implements Initializable {
     private ProgramState selectedProgram;
 
     @FXML
-    public TextField currentSelectedProgram = new TextField("");
+    public TextField currentSelectedProgram;
 
     @FXML
     public void setSelectedProgram() {
@@ -35,22 +41,39 @@ public class InterpreterController implements Initializable {
     }
 
     private void loadData() {
-        programs.getItems().setAll( controller.getPrograms().stream().map(ProgramState::getID).collect(Collectors.toList()));
+        programs.getItems().setAll(controller.getPrograms().stream().map(ProgramState::getID).collect(Collectors.toList()));
         if (selectedProgram != null) {
-            List<String> exeStackElems = selectedProgram.getExeStack().getData().stream().map(IStatement::toString).collect(Collectors.toList());
-            Collections.reverse(exeStackElems);
-            executionStack.getItems().setAll(exeStackElems);
-            output.getItems().setAll(selectedProgram.getOutput().getData().stream().map(Object::toString).collect(Collectors.toList()));
-
-            symbolTableNames.getItems().setAll(selectedProgram.getSymTable().getKeys());
-            symbolTableValues.getItems().setAll(selectedProgram.getSymTable().getValues().stream().map(Object::toString).collect(Collectors.toList()));
-
-            fileTableNames.getItems().setAll(selectedProgram.getFileTable().getKeys().stream().map(Object::toString).collect(Collectors.toList()));
-            fileTablePaths.getItems().setAll(selectedProgram.getFileTable().getValues().stream().map(p -> p.getSecond().toString()).collect(Collectors.toList()));
-
-            heapTableAddresses.getItems().setAll(selectedProgram.getHeapTable().getKeys().stream().map(Object::toString).collect(Collectors.toList()));
-            heapTableValues.getItems().setAll(selectedProgram.getHeapTable().getValues().stream().map(Object::toString).collect(Collectors.toList()));
+            loadExeStack();
+            loadOutput();
+            loadSymbolTable();
+            loadFileTable();
+            loadHeapTable();
         }
+    }
+
+    private void loadSymbolTable() {
+        HashMap<String, Integer> dataHash = selectedProgram.getSymTable().getMyDictionary();
+        symbolTable.setItems(FXCollections.observableArrayList(dataHash.keySet().stream().map(p -> new Pair<String, Integer>(p, dataHash.get(p))).collect(Collectors.toList())));
+    }
+
+    private void loadFileTable() {
+        HashMap<Integer, Pair<String, BufferedReader>> dataHash = selectedProgram.getFileTable().getMyDictionary();
+        fileTable.setItems(FXCollections.observableArrayList(dataHash.keySet().stream().map(p -> new Pair<String, String>(p.toString(), dataHash.get(p).getFirst())).collect(Collectors.toList())));
+    }
+
+    private void loadHeapTable() {
+        HashMap<Integer, Integer> dataHash = selectedProgram.getHeapTable().getMyDictionary();
+        heapTable.setItems(FXCollections.observableArrayList(dataHash.keySet().stream().map(p -> new Pair<Integer, Integer>(p, dataHash.get(p))).collect(Collectors.toList())));
+    }
+
+    private void loadExeStack() {
+        List<String> exeStackElems = selectedProgram.getExeStack().getData().stream().map(IStatement::toString).collect(Collectors.toList());
+        Collections.reverse(exeStackElems);
+        executionStack.getItems().setAll(exeStackElems);
+    }
+
+    private void loadOutput() {
+        output.getItems().setAll(selectedProgram.getOutput().getData().stream().map(Object::toString).collect(Collectors.toList()));
     }
 
     private Controller controller;
@@ -69,7 +92,11 @@ public class InterpreterController implements Initializable {
     public Button runButton;
 
     public void runButton_onAction() {
-        controller.executeAllProgram();
+        try {
+            controller.executeAllProgram();
+        } catch (Exception e) {
+            openMessageBox("Interpreter", "Interpreter info", "The program is over!");
+        }
         loadData();
     }
 
@@ -81,17 +108,21 @@ public class InterpreterController implements Initializable {
         try {
             controller.executeOneStepProgram();
         } catch (Exception e) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Interpreter");
-            alert.setHeaderText("Interpreter info");
-            alert.setContentText("The program is over!");
-            alert.showAndWait().ifPresent(rs -> {
-                if (rs == ButtonType.OK) {
-                    System.out.println("Pressed OK.");
-                }
-            });
+            openMessageBox("Interpreter", "Interpreter info", "The program is over!");
         }
         loadData();
+    }
+
+    private void openMessageBox(String title, String header, String content) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(header);
+        alert.setContentText(content);
+        alert.showAndWait().ifPresent(rs -> {
+            if (rs == ButtonType.OK) {
+                System.out.println("Pressed OK.");
+            }
+        });
     }
 
     @FXML
@@ -104,30 +135,45 @@ public class InterpreterController implements Initializable {
     }
 
     @FXML
-    public ListView<String> output = new ListView<>();
+    public ListView<String> output;
     @FXML
-    public ListView<Integer> programs = new ListView<>();
+    public ListView<Integer> programs;
     @FXML
-    public ListView<String> executionStack = new ListView<>();
-
-
-    @FXML
-    public ListView<String> symbolTableNames = new ListView<>();
-    @FXML
-    public ListView<String> symbolTableValues = new ListView<>();
-
+    public ListView<String> executionStack;
 
     @FXML
-    public ListView<String> fileTableNames = new ListView<>();
-    @FXML
-    public ListView<String> fileTablePaths = new ListView<>();
+    public TableView<Pair<String, Integer>> symbolTable;
 
     @FXML
-    public ListView<String> heapTableAddresses = new ListView<>();
+    public TableColumn<Pair<String, Integer>, String> symbolTableNames;
     @FXML
-    public ListView<String> heapTableValues = new ListView<>();
+    public TableColumn<Pair<String, Integer>, Integer> symbolTableValues;
+
+    @FXML
+    public TableView<Pair<String, String>> fileTable;
+
+    @FXML
+    public TableColumn<Pair<String, String>, String> fileTableNames;
+    @FXML
+    public TableColumn<Pair<String, String>, String> fileTablePaths;
+
+    @FXML
+    public TableView<Pair<Integer, Integer>> heapTable;
+
+    @FXML
+    public TableColumn<Pair<Integer, Integer>, Integer> heapTableAddresses;
+    @FXML
+    public TableColumn<Pair<Integer, Integer>, Integer> heapTableValues;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        symbolTableNames.setCellValueFactory(new PropertyValueFactory<>("first"));
+        symbolTableValues.setCellValueFactory(new PropertyValueFactory<>("second"));
+
+        fileTableNames.setCellValueFactory(new PropertyValueFactory<>("first"));
+        fileTablePaths.setCellValueFactory(new PropertyValueFactory<>("second"));
+
+        heapTableAddresses.setCellValueFactory(new PropertyValueFactory<>("first"));
+        heapTableValues.setCellValueFactory(new PropertyValueFactory<>("second"));
     }
 }

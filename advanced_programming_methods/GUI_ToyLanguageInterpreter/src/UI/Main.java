@@ -33,14 +33,14 @@ public class Main extends Application {
         primaryStage.setTitle("Toy Language Interpreter");
 
         StartUpController controller = loader.getController();
-        controller.setProgramsList(getExamples());
+        controller.setPrograms(getExamples());
 
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
 
-    public List<Controller> getExamples() {
-        List<Controller> examples = new ArrayList<>();
+    public List<Example> getExamples() {
+        List<Example> examples = new ArrayList<>();
 
         examples.add(setUpExample(example1(), "example 1"));
         examples.add(setUpExample(example2(), "example 2"));
@@ -48,9 +48,9 @@ public class Main extends Application {
         return examples;
     }
 
-    public Controller setUpExample(List<ProgramState> statements, String exName) {
+    public Example setUpExample(List<ProgramState> statements, String exName) {
         Repository repo = new Repository(statements, "/home/bogdanboboc97/Projects/Github/UBB_Bachelor-s_Degree/advanced_programming_methods/GUI_ToyLanguageInterpreter/src/Interpreter/logs.data");
-        return new Controller(repo, exName);
+        return new Example(new Controller(repo), exName);
     }
 
     public List<ProgramState> example1() {
